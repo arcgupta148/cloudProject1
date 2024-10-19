@@ -40,10 +40,10 @@ def lambda_handler(event, context):
 
         # Extract necessary data from the message body
         cuisine = message_body.get('Cuisine').capitalize()
-        location = message_body.get('Location', 'Unknown')
+        location = message_body.get('Location')
         dining_date = message_body.get('DiningDate', str(datetime.now().date()))  # Default to today
-        dining_time = message_body.get('DiningTime', '7:00 PM')  # Default to 7 PM
-        number_of_people = message_body.get('NumberOfPeople', '2')
+        dining_time = message_body.get('DiningTime')  # Default to 7 PM
+        number_of_people = message_body.get('NumberOfPeople')
         recipient_email = message_body.get('Email')
         
         print(f"Cuisine: {cuisine}, Location: {location}, Dining Time: {dining_time}, Recipient Email: {recipient_email}")
@@ -117,7 +117,7 @@ def get_random_restaurants(cuisine, num_restaurants):
 
 def send_email_via_ses(recipient_email, subject, body):
     """ Send an email via Amazon SES """
-    sender_email = "arcgupta148@gmail.com"  # The recipient email will also be the sender email in this case.
+    sender_email = "arcgupta148@gmail.com"   
     try:
         response = ses.send_email(
             Source=sender_email,

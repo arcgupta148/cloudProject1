@@ -6,9 +6,9 @@ import uuid
 lex_client = boto3.client('lexv2-runtime')
 
 # Bot and Alias details
-BOT_ID = 'CMICPVTHDS'          # Your Bot ID
-BOT_ALIAS_ID = 'TSTALIASID'     # Your Bot Alias ID
-LOCALE_ID = 'en_US'             # Your Locale ID
+BOT_ID = 'CMICPVTHDS'         
+BOT_ALIAS_ID = 'TSTALIASID'     
+LOCALE_ID = 'en_US'             
 
 def lambda_handler(event, context):
     # Log the incoming event to help debug the input
@@ -17,7 +17,7 @@ def lambda_handler(event, context):
     try:
         user_input = event['messages'][0]['unstructured']['text']
     except KeyError:
-        # If the expected keys are missing, log an error and default to "Hello"
+        "
         print("Error: Could not extract 'text' from event. Defaulting to 'Hello'.")
         user_input = 'Hello'
     

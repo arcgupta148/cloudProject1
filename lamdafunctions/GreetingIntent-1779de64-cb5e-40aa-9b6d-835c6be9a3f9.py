@@ -5,9 +5,8 @@ import boto3
 sqs = boto3.client('sqs')
 dynamodb = boto3.resource('dynamodb')
 
-# Replace this with your actual SQS Queue URL
 SQS_QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/739275456688/SQS_Q1'
-DYNAMODB_TABLE_NAME = 'UserSearchHistory'  # Your DynamoDB table name
+DYNAMODB_TABLE_NAME = 'UserSearchHistory'  
 
 def lambda_handler(event, context):
     # Log the full event to understand its structure
